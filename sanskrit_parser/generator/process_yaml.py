@@ -69,9 +69,14 @@ def process_yaml(y):
 
                             def _cond_single(sk, k):
                                 if isinstance(sk, list):
-                                    _res = False
-                                    for _ssk in sk:
-                                        _res = _res or _cond_single(_ssk, k)
+                                    if sk[0] == "and":
+                                        _res = True
+                                        for _ssk in sk[1:]:
+                                            _res = _res and _cond_single(_ssk, k)
+                                    else:
+                                        _res = False
+                                        for _ssk in sk:
+                                            _res = _res or _cond_single(_ssk, k)
                                     return _res
                                 if (sk[0] == "_"):
                                     # Pratyahara
