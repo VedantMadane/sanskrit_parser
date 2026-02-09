@@ -266,6 +266,9 @@ def wilopa(s):
 
 
 def adi(s, x):
+    s = str(s)
+    if len(s) == 0:
+        return False
     return s[0] == x
 
 
@@ -273,9 +276,14 @@ def dAdi(s):
     return adi(s, "d")
 
 
-def ekAcDAtu(s):
+def ekAc(s):
+    s = str(s)
     ac_count = len([x for x in s if isInPratyahara("ac", x)])
     return ac_count == 1
+
+
+def ekAcDAtu(s):
+    return ekAc(s)
 
 
 def baSoBaz(s):

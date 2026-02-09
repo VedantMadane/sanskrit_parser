@@ -68,6 +68,11 @@ def process_yaml(y):
                             logger.debug(f"Checking cond {_s[k]} against {k}")
 
                             def _cond_single(sk, k):
+                                if isinstance(sk, list):
+                                    _res = False
+                                    for _ssk in sk:
+                                        _res = _res or _cond_single(_ssk, k)
+                                    return _res
                                 if (sk[0] == "_"):
                                     # Pratyahara
                                     logger.debug(f"Checking pratyahara {sk[1:]} {k}")
