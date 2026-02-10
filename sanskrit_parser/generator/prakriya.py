@@ -240,9 +240,10 @@ class Prakriya(object):
     def _exec_single(self, node):
         l = self.sutra_list  # noqa: E741
         # Sliding window, check from left
+        triggered = []
+        _ix = -1
         for ix in range(len(node.outputs)-1):
             logger.debug(f"Disabled Sutras at window {ix} {[s for s in node.outputs[ix].disabled_sutras]}")
-            triggered = []
             triggered = [s for s in l if ((s.aps not in node.outputs[ix].disabled_sutras)
                                           and s.isTriggered(*self.view(s, node, ix), self.domains))]
             # Break at first index from left where trigger occurs

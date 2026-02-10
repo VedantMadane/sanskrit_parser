@@ -60,6 +60,10 @@
     condition:
       l: _ik
       r: _ac
+      lp:
+       - and
+       - ?!pragfhya
+       - ?!pluta
     xform:
       l: ikoyan(l)
        
@@ -68,6 +72,10 @@
     condition:
       l: _ec
       r: _ac
+      lp:
+       - and
+       - ?!pragfhya
+       - ?!pluta
     xform:
        l: ayavayav(l)
        
@@ -395,8 +403,7 @@
         - ?pluta
         - ?pragfhya
        r: _ac
-    xform:
-       l: null
+    xform: null
 
 # FIXME - test this once we do dvicacana
 # 100: ईदूदेद्द्विवचनं प्रगृह्यम् (1-1-11) 
@@ -419,6 +426,27 @@
     update:
       olp: +pragfhya
 
+# 102: निपात एकाजनाङ् (1-1-14)
+-   sutra: निपात एकाजनाङ्
+    id: 1.1.14
+    condition:
+      lp:
+        - and
+        - ?nipAta
+        - $$ekAc
+        - ?!AN
+    update:
+      olp: +pragfhya
+
+# 103: ओत् (1-1-15)
+-   sutra: ओत्
+    id: 1.1.15
+    condition:
+      lp: ?nipAta
+      l: o
+    update:
+      olp: +pragfhya
+
 
 # Better handled as a paribhAshA
 # -   sutra: उरण् रपरः
@@ -437,6 +465,10 @@
     condition:
       l: _ak
       r: $l
+      lp:
+       - and
+       - ?!pragfhya
+       - ?!pluta
     xform:
       l: dirgha(l)
       r: null
@@ -2562,9 +2594,19 @@
 
 # saMjYA prakaraRam
 
+- sutra: तरप्तमपौ घः
+  domain: saMjYA
+  id: 1.1.22
+  condition:
+     lp:
+       - ?tarap
+       - ?tamap
+  update:
+     olp: +gha
+
 - sutra: ष्णान्ता षट्
   domain: saMjYA
-  id: 1.1.26
+  id: 1.1.24
   condition:
      l: [z, n]
      lp:
@@ -2582,6 +2624,16 @@
   update:
      olp: +zaw
 
+- sutra: क्तक्तवतू निष्ठा
+  domain: saMjYA
+  id: 1.1.26
+  condition:
+     lp:
+       - ?kta
+       - ?ktavatu
+  update:
+     olp: +niSWA
+
 # 213: सर्वादीनि सर्वनामानि (1-1-27)
 - sutra: सर्वादीनि सर्वनामानि
   domain: saMjYA
@@ -2591,6 +2643,62 @@
        - ?sarvAdi
   update:
      olp: +sarvanAma
+
+# 1.1.37: स्वरादिनिपातमव्ययम्
+- sutra: स्वरादिनिपातमव्ययम्
+  domain: saMjYA
+  id: 1.1.37
+  condition:
+     lp:
+       - ?svarAdi
+       - ?nipAta
+  update:
+     olp: +avyaya
+
+# 1.1.38: तद्धितश्चासर्वविभक्तिः
+- sutra: तद्धितश्चासर्वविभक्तिः
+  domain: saMjYA
+  id: 1.1.38
+  condition:
+     lp:
+       - and
+       - ?taddhita
+       - ?asarvavibhakti
+  update:
+     olp: +avyaya
+
+# 1.1.39: कृन्मेजन्तः
+- sutra: कृन्मेजन्तः
+  domain: saMjYA
+  id: 1.1.39
+  condition:
+     lp:
+       - ?krt
+     l: [m, e, o, E, O]
+  update:
+     olp: +avyaya
+
+# 1.1.40: क्त्वातोसुन्कसुनः
+- sutra: क्त्वातोसुन्कसुनः
+  domain: saMjYA
+  id: 1.1.40
+  condition:
+     lp:
+       - and
+       - ?krt
+       - [=ktvA, =tosun, =kasun]
+  update:
+     olp: +avyaya
+
+# 1.1.41: अव्ययीभावश्च
+- sutra: अव्ययीभावश्च
+  domain: saMjYA
+  id: 1.1.41
+  condition:
+     lp:
+       - ?avyayIbhAva
+  update:
+     olp: +avyaya
 
 # 313: शि सर्वनामस्थानम् (1-1-42) 
 - sutra:  शि सर्वनामस्थानम्
